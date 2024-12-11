@@ -1,0 +1,302 @@
+[
+{
+    "A process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer describes an\nA: Troubleshooting problem\nB: Set of inputs\nC: Algorithm\nD: Computer program": "Algorithm"
+},
+{
+    "To make this algorithm functional, which step would you add to step 4?\nScan to find the smallest number\nSet to 0 in the index in the output array\nRemove that number from the input array\n__________________________________________\nA: Repeat steps 1-3, but subtract the total from the numbers summated\nB: Print output in the correct order\nC: Divide the array by the index, print the array output\nD: Repeat steps 1-3, but add 1 to the index number for each loop": "Repeat steps 1-3, but add 1 to the index number for each loop"
+},
+{
+    "Take input, get output, use output on next input is an example of a learning algorithm\nA: True\nB: False": "True"
+},
+{
+    "Learning algorithms require large datasets, which means storing identifying information about users\nA: True\nB: False": "True"
+},
+{
+    "A _________ _________ in machine learning is the idea that the algorithm itself influences the next set of inputs that go into the model. the main takeaway is that algorithms sometimes have more influence than a user's initial input.\nA: Feedback loop\nB: Large dataset\nC: Learning algorithm\nD: False dichotomy": "Feedback loop"
+},
+{
+    "Are anonymous datasets truly anonymous?\nA: Yes, thanks to privacy regulations\nB: Yes, thanks to machine learning randomness algorithms\nC: No, due to lacking regulations\nD: No, due to combining data and re-identification": "No, due to combining data and re-identification"
+},
+{
+    "Which of the following best describes what an algorithm is?\nA: A type of computer that calculates problem-solving methods\nB: A type of process a human uses to write down what steps need to happen to get a problem solved\nC: A recipe that a computer uses to solve problems\nD: A list of ingredients a computer uses to generate problems to solve": "A recipe that a computer uses to solve problems"
+},
+{
+    "An algorithm that takes an input, tries 10 different sorting techniques, and uses the best fit on the next 100 inputs is best described as a\nA: Learning algorithm\nB: Explicit algorithm\nC: Data algorithm\nD: Implicit algorithm": "Learning algorithm"
+},
+{
+    "Which of these steps follows the most logical order for a low-to-high sorting algorithm?\nA: Scan to find the smallest number\nSet to 0 in the index in the output array\nRemove that number from the input array\nRepeat steps 1-3, but add 1 to the index number for each loop\nB: Scan to find the smallest number\nSet the length of the array in the index in the output array\nRemove that number from the input\nRepeat steps 1-3, but add 1 to the index number for each loop\nC: Scan to find the smallest number\nSet to 0 in the index in the output array\nRemove that number from the input array\nD: Scan to find the largest number\nSet to 0 in the index in the output array\nRemove that number from the input array\nRepeat steps 1-3, but add 1 to the index number for each loop": "Scan to find the smallest number\nSet to 0 in the index in the output array\nRemove that number from the input array\nRepeat steps 1-3, but add 1 to the index number for each loop"
+},
+{
+    "What's the difference between a basic and learning algorithm?\nA: A basic algorithm takes an input and gets an output, while a learning algorithm takes multiple inputs and gets multiple outputs\nB: An basic algorithm takes an input and gets an output, while a learning algorithm uses the output on the next input\nC: A basic algorithm takes an input, gets an output, while a learning algorithm takes multiple inputs and gets multiple outputs\nD: A basic algorithm takes an input, while a learning algorithm takes an input and gets an output": "An basic algorithm takes an input and gets an output, while a learning algorithm uses the output on the next input"
+},
+{
+    "Pseudocode can best be defined as\nA: A python library for machine learning\nB: A middle ground between code and plain writing that can be fed into a computer\nC: A type of javascript that is both human and machine-readable\nD: An explainable description of code that is meant for humans, not computers": "An explainable description of code that is meant for humans, not computers"
+},
+{
+    "What side effect of learning algorithms creates an ethical dilemma for its users?\nA: Learning algorithms require government regulation, which is bad for software developers\nB: Learning algorithms are costly to run, which drives up prices for consumer services\nC: Learning algorithms require large datasets, which means storing identifying information about users\nD: Learning algorithms require large amounts of computing power, which is bad for the environment": "Learning algorithms require large datasets, which means storing identifying information about users"
+},
+{
+    "How do anonymized datasets fall short of their goal of being anonymous?\nA: Anonymized datasets can be combined with other datasets, which can re-identify individuals\nB: Anonymized datasets can be re-identifyed by anyone holding the hash key\nC: Anonymized datasets can be traced back to the individuals by looking at their browsing history in the app\nD: Anonymized datasets aren't actually anonymous because many of the data fields can identify a user": "Anonymized datasets can be combined with other datasets, which can re-identify individuals"
+},
+{
+    "What is a likely outcome for a weather app using a learning algorithm to figure out where to put their future weather stations?\nA: Accessing weather forecasts from local broadcasts\nB: Storing data in an aws instance with all weather stations in the country\nC: Collecting location data every time the app is opened, potentially learning where a user lives, works, etc.\nD: Collecting weather data every time the app is opened, knowing the temperature where the app is being used": "Collecting location data every time the app is opened, potentially learning where a user lives, works, etc."
+},
+{
+    "Which of the following is a good example of a feedback loop in machine learning?\nA: A social media site tracks engagement, uses an algorithm to surface posts you're likely to engage with, which then goes back into the algorithm\nB: A social media site surfaces controversial posts, which make users more angry and lead to more angry posts on the network\nC: A shopping app tracks your purchases, and recommends new things to buy\nD: A shopping app surfaces new items to buy, which is based on dataset from customers fitting a similar profile. when you buy, you go into that dataset": "A social media site tracks engagement, uses an algorithm to surface posts you're likely to engage with, which then goes back into the algorithm"
+},
+{
+    "A fact of learning algorithms is that\nA: Even if you haven't shared an direct datapoint about yourself, with enough related datapoints the algorithm can make an educated guess with alarming accuracy\nB: Just because they are capable of improving outputs, they don't need more inputs\nC: They only learn when given small amounts of data, and without the proper training sample, the results can be wildly inaccurate\nD: They cannot make predictions with current technology": "Even if you haven't shared an direct datapoint about yourself, with enough related datapoints the algorithm can make an educated guess with alarming accuracy"
+},
+{
+    "A basic learning model can figure out which of the 10 sorting mechanisms works best for this type of input. a complex model ______________________\nA: Automatically scans all inputs\nB: Can figure out up to 150 mechanisms\nC: Can figure out up to 50 mechanisms\nD: Automatically derives its mechanism": "Automatically derives its mechanism"
+},
+{
+    "A model's error rate is the ratio of incorrect predictions to total predictions\nA: True\nB: False": "True"
+},
+{
+    "The goal of the _______________ is to get the model's error rate as low as possible. to do this, we repeat a cycle of feeding training data, compare predictions to actual outcomes, and adjust the model as needed.\nA: Develop phase\nB: Algorithmic phase\nC: Training phase\nD: Deployment phase": "Training phase"
+},
+{
+    "As models become more complex, researchers are unable to reason why the decisions are being made. this is called the _________________\nA: Rationality phase\nB: Black box problem\nC: Training phase\nD: False input problem": "Black box problem"
+},
+{
+    "____________ can often be caused by predicting what someone may or may not do based on data\nA: Irrationality\nB: Dataset collection\nC: Real harm\nD: Retraining scenarios": "Real harm"
+},
+{
+    "Hedge funds largely rely on predictive models to judge the movement of stocks, bonds, and securities\nA: True\nB: False": "True"
+},
+{
+    "What's the difference between a basic and complex learning algorithm?\nA: A basic algorithm cannot use computer vision, while a complex algorithm can\nB: A basic algorithm cannot process more than 5 steps in a function, while a complex algorithm can process up to 15\nC: A basic algorithm has a set amount of choices to optimize for, while a complex algorithm is given the freedom to find its own model\nD: A basic algorithm can handle simple inputs like numbers, while a complex algorithm can handle complex inputs like pictures": "A basic algorithm has a set amount of choices to optimize for, while a complex algorithm is given the freedom to find its own model"
+},
+{
+    "When building a predictive model, what is the goal of the develop phase?\nA: To get the model to accept new inputs, train, and repeat training until it finds a better curve\nB: To specify the type of algorithm the model should use and make sure the data is cleaned/formatted\nC: To plug in 40% of your dataset, testing the model's accuracy\nD: To get the model's error function below an acceptable percentage": "To specify the type of algorithm the model should use and make sure the data is cleaned/formatted"
+},
+{
+    "When building a predictive model, what is the goal of the training phase?\nA: To adjust training methods from backpropagation to supervised learning to see how that affects outputs\nB: To use the model in real-world scenarios, monitoring performance\nC: To adjust the model based on a subset of data, optimizing for a lower error rate\nD: To specify the type of algorithm the model should use and make sure the data is cleaned/formatted": "To adjust the model based on a subset of data, optimizing for a lower error rate"
+},
+{
+    "When building a predictive model, what is the goal of the deployment phase?\nA: To specify the type of algorithm the model should use and make sure the data is cleaned/formatted\nB: To plug in 40% of your dataset, testing the model's accuracy\nC: To use the model in real-life predictions, monitoring the error rate and accuracy\nD: To get the model to accept new inputs, train, and repeat training until it finds a better curve": "To use the model in real-life predictions, monitoring the error rate and accuracy"
+},
+{
+    "What are the attributes of an error function when training a predictive model\nA: The percentage of data that is formatted properly\nB: The ratio of training data to actual data the model has consumed\nC: The ratio of algorithm to curve in a predictive model\nD: The percentage of predictions that don't match actual outcomes": "The percentage of predictions that don't match actual outcomes"
+},
+{
+    "In a complex learning function, we will understand the ____, but not the ____\nA: Causal link, correlation\nB: Algorithm, cause and effect\nC: Inputs/outputs, algorithm\nD: Input data, output data": "Inputs/outputs, algorithm"
+},
+{
+    "What is the black box problem?\nA: The problem created when researchers don't create accurate attributes for a model\nB: When a model cannot accurately judge shape or color of objects due to missing data\nC: The issue of not having enough data to accurately train a model\nD: When a model is deployed, but researchers are unable to figure out why it's making decisions": "When a model is deployed, but researchers are unable to figure out why it's making decisions"
+},
+{
+    "Which of the following is a negative consequence of a predictive model used in real life?\nA: A model used by a lab wrongly predicts a person will not be able to pay their credit card\nB: A model used by a lab indicates a person is in danger\nC: A model used by a bank accurately predicts a person will not be able to pay off a loan\nD: A model used by a bank wrongly predicts a person will not be able to pay off a loan": "A model used by a bank wrongly predicts a person will not be able to pay off a loan"
+},
+{
+    "How are predictive models used in hedge funds?\nA: They aid researchers by forecasting financial collapse\nB: They provide predictions to shareholders to estimate returns\nC: They predict future movement of stocks and find points to exploit the market moving in either direction\nD: They predict whether people will be able to pay off loans, and then provide loans": "They predict future movement of stocks and find points to exploit the market moving in either direction"
+},
+{
+    "What is one possible reason a model may predict a higher crime rate based on datasets used?\nA: If a dataset isn't properly formatted, crime may be linked to the error function, outputting false data\nB: If crime is down in an area, a model may predict a parabolic curve which estimates crime is due to rise again\nC: The model's training curve was not provided enough data\nD: If drug arrests are historically high in that area, the model may correlate crime with areas of high drug use based on the datasets": "If drug arrests are historically high in that area, the model may correlate crime with areas of high drug use based on the datasets"
+},
+{
+    "To measure accuracy, take the number of ________ results and divide over the number of all results\nA: False positive and false negative\nB: True positive and true negative\nC: False positive and true negative\nD: True positive and false negative": "True positive and true negative"
+},
+{
+    "A false negative result is one in which the model predicts a result was negative, and in reality it was ___________. it is an _________ prediction\nA: Positive, correct\nB: Negative, correct\nC: Positive, incorrect\nD: Negative, incorrect": "Positive, incorrect"
+},
+{
+    "City and state are correlated data, but a model will measure no variation and the results will not be affected\nA: True\nB: False": "False"
+},
+{
+    "A ________ training set relies on running a final accuracy test before deploying a model. an __________ training set relies on multiple tests to ensure that a model is free of bias\nA: Sample, optimized\nB: Test, classic\nC: Optimized, classic\nD: Classic, optimized": "Classic, optimized"
+},
+{
+    "An unknown unknown is an example of a cultural reflection of data\nA: True\nB: False": "False"
+},
+{
+    "An ethical predictive model needs to be accurate, _____________, and fair\nA: Moral\nB: Predictable\nC: Truthful\nD: Explainable": "Explainable"
+},
+{
+    "To measure a predictive model's accuracy, you\nA: Multiply the number of total predictions by the percentage of correct predictions\nB: Divide the number of predictions by the total dataset\nC: Measure the ratio of the model's error curve\nD: Divide the number of correct predictions by the total number of predictions": "Divide the number of correct predictions by the total number of predictions"
+},
+{
+    "A predictive model's false negative result can be defined as\nA: The predicted result was positive, and the actual result was positive\nB: The predicted result was positive, and the actual result was negative\nC: The predicted result was negative, and the actual result was positive\nD: The predicted result was negative, and the actual result was negative": "The predicted result was negative, and the actual result was positive"
+},
+{
+    "A predictive model's true positive result can be defined as\nA: The predicted result was positive, and the actual result was positive\nB: The predicted result was negative, and the actual result was negative\nC: The predicted result was negative, and the actual result was positive\nD: The predicted result was positive, and the actual result was negative": "The predicted result was positive, and the actual result was positive"
+},
+{
+    "Model inputs of address with \"city + state\" as separate inputs from a dataset would violate which accuracy guideline?\nA: Domain expertise\nB: Objective summarization\nC: First principles\nD: No correlating data": "No correlating data"
+},
+{
+    "Once a dataset has been cleaned, which accuracy guideline ensures your model is looking at the problem correctly?\nA: Objective summarization\nB: Domain expertise\nC: First principles\nD: Dataset verification": "Domain expertise"
+},
+{
+    "A good example of cultural reflection in training data is\nA: A model fails to recognize cultural differences due to incorrect attributes\nB: A predictive model incorporates training data from a variety of sources\nC: A model selects for one demographic less often because of their historical representation\nD: An image recognition model selects one face over another based on sample data": "A model selects for one demographic less often because of their historical representation"
+},
+{
+    "A good example of empirical reflection in training data is\nA: An image recognition model cannot tell a difference between a photo of a dog and a photo of a photo of a dog\nB: An image recognition model selects one face over another based on sample data\nC: A true positive result that defies the training data set\nD: A model fails to recognize cultural differences due to incorrect attributes": "An image recognition model cannot tell a difference between a photo of a dog and a photo of a photo of a dog"
+},
+{
+    "A training set based on feeding 60% of data, validating on 20% of data, and then designing multiple tests for the remaining 20% of data is referred to as an\nA: False positive set\nB: Optimized training set\nC: Predictive training set\nD: Classic training set": "Optimized training set"
+},
+{
+    "Our goals for building an ethical predictive model include making sure the results are\nA: Precise, methodical, ethical\nB: Accurate, precise, fair\nC: Precise, explainable, predictable\nD: Accurate, fair and explainable": "Accurate, fair and explainable"
+},
+{
+    "Unknown unknowns refer to\nA: Facing unknown empirical data with an incomplete dataset\nB: An uncertainty of how the data is gathered\nC: Being unsure about the morals of the research team\nD: Lack of explainability and what a model is actually looking at to make it's prediction": "Lack of explainability and what a model is actually looking at to make it's prediction"
+},
+{
+    "Narrow ai (ani) is defined as a specific type of artificial intelligence in which a technology outperforms humans in some defined task.\nA: True\nB: False": "True"
+},
+{
+    "An ethical, evolved predictive model would need to mimic a researcher's ability to _________________\nA: Scrub data\nB: Self-learn\nC: Parse through datasets\nD: Eliminate bias": "Eliminate bias"
+},
+{
+    "The second evolution of decision-making ai would enable\nA: Predictive models to drive cars\nB: Predictive models to start companies\nC: Predictive models to decide war strategy\nD: Predictive models to approve loans": "Predictive models to decide war strategy"
+},
+{
+    "Researchers believe that a general-purpose ai must be available to as many as possible, making it similar to a ________\nA: Government program\nB: Utility\nC: Tax plan\nD: System of money": "Utility"
+},
+{
+    "A perverse instantiation is an unintended negative outcome of programming a goal that is too specific given to general intelligence\nA: True\nB: False": "False"
+},
+{
+    "For-profit colleges tend to use predictive models\nA: To accelerate their research departments\nB: To see which candidates are most likely to receive government loans.\nC: To see which applicants are most likely to graduate\nD: To evaluate the standards of their professors": "To see which candidates are most likely to receive government loans."
+},
+{
+    "For a model to clean, parse, and self-train it's own dataset while remaining impartial, the model needs\nA: A test for recency bias\nB: 10x the amount of data\nC: A list of bias and domain tests to run and adjust for\nD: More powerful computing algorithms to auto-scrub data": "A list of bias and domain tests to run and adjust for"
+},
+{
+    "For a model to make decisions that involve human life, the model needs\nA: A list of bias tests to run against possible wrong outcomes\nB: Enough computing power to make correct predictions 100% of the time\nC: A moral code of reasoning and priorities\nD: Programmed reflexive decision making ability": "A moral code of reasoning and priorities"
+},
+{
+    "A type of artificial intelligence that outperforms humans in some defined task is known as\nA: Special ai\nB: General ai\nC: Aei\nD: Narrow ai": "Narrow ai"
+},
+{
+    "A type of artificial intelligence that outperforms humans in all tasks is known as\nA: Encompassing ai\nB: Outwit ai\nC: General ai\nD: Specific ai": "General ai"
+},
+{
+    "In 2019, ____% of equity-futures and cash-equity trades were executed by algorithms\nA: 20-30%\nB: 80-90%\nC: 11-17%\nD: 1-5%": "80-90%"
+},
+{
+    "The optimistic view of general ai could be accurately summarized as ai as a ____\nA: Peace-keeping tool\nB: Human right\nC: Weapon\nD: Utility": "Utility"
+},
+{
+    "The pessimist view of general ai references a scenario in which advancement is _____\nA: Creating ai for all governments\nB: Impossible\nC: Winner take all\nD: A potential extinction event": "Winner take all"
+},
+{
+    "An ethical general purpose ai must _____ while not harming the safety of humanity\nA: Keep those in power responsible\nB: Be 100% accurate\nC: Benefit as many people as possible\nD: Not enact hate": "Benefit as many people as possible"
+},
+{
+    "\"companies have an obligation to their shareholders\" is part of a view that sees artificial intelligence as\nA: An overall good for humanity, no matter the consequences\nB: A harmful tool that will bring about the end of capitalism\nC: Just another tool that accelerates research, like online advertising\nD: A gimmick for enterprises, unless general intelligence is achieved": "Just another tool that accelerates research, like online advertising"
+},
+{
+    "An unintended negative outcome of programming a broad goal into general intelligence is known as\nA: Perverse instantiation\nB: Artificial sanctification\nC: An ethical dilemma\nD: An enduring output": "Perverse instantiation"
+},
+{
+    "True or false: the definition of fairness is \"just treatment without bias and contempt\"\nA: True\nB: False": "False"
+},
+{
+    "Statistical parity as a fairness goal makes the most sense when\nA: Distributing randomly, ex. tickets\nB: Distributing by merit, ex. loans\nC: Distributing by gender, ex. tickets\nD: Distributing by error rate, ex. loans": "Distributing randomly, ex. tickets"
+},
+{
+    "Error rate parity means an equal chance of\nA: Outcomes for each group\nB: Prediction rate for each group\nC: Mistakes made for each group\nD: Approval for each group": "Mistakes made for each group"
+},
+{
+    "If you know one group is misrepresented in merit by training data, one way to ensure fairness is to\nA: Delete that group's data from the dataset\nB: Protect a different group\nC: Create a separate threshold for that group\nD: Reboot the training data": "Create a separate threshold for that group"
+},
+{
+    "True or false: fairness in machine learning cannot protect all individuals within protected groups from harm\nA: True\nB: False": "True"
+},
+{
+    "Our goal in machine learning fairness is to minimize _______ as long as _______ is obtained\nA: Accuracy issues, unfairness\nB: Unfairness, equality\nC: Error rates, parity\nD: Equality, error rates": "Error rates, parity"
+},
+{
+    "Fairness is best defined as just treatment without __________\nA: Prejudice and favoritism\nB: Discrimination and prejudice\nC: Bias and contempt\nD: Favoritism or discrimination": "Favoritism or discrimination"
+},
+{
+    "Which type of fairness would make sense when dividing tickets evenly between groups?\nA: Equality of prediction rate\nB: Statistical parity\nC: Equality of false positives\nD: Error rate parity": "Statistical parity"
+},
+{
+    "Which type of fairness fails to address merit while maintaining accuracy?\nA: Error rate parity\nB: Statistical parity\nC: Equality of prediction rate\nD: Equality of false positives": "Statistical parity"
+},
+{
+    "A model that prioritizes equality on the outputs uses\nA: Equality of prediction rate\nB: Equality of assignment rate\nC: Error rate parity\nD: Statistical parity": "Error rate parity"
+},
+{
+    "Fairness in machine learning can protect groups from bias, but can still harm\nA: Individuals within those groups\nB: Future models\nC: Researchers\nD: Training datasets": "Individuals within those groups"
+},
+{
+    "A goal of a fair model's accuracy standards is to\nA: Minimize the quality metrics as long as the quantity metrics aren't affected\nB: Minimize the error rate as long as the training data isn't affected\nC: Minimize the error rate as long as parity is obtained\nD: Minimize the fairness score as long as the error rate isn't affected": "Minimize the error rate as long as parity is obtained"
+},
+{
+    "A model that makes more mistakes by moving its decision threshold down 40% of its worthiness metric will be potentially\nA: Fairer but less accurate\nB: Less fair but more accurate\nC: More accurate and fairer\nD: Less accurate and less fair": "Fairer but less accurate"
+},
+{
+    "If one group comprises the majority of the training data, they will skew the dataset and give the model\nA: More fairness for that group\nB: Less fairness for that group\nC: More confidence about that group\nD: Less confidence about that group": "More confidence about that group"
+},
+{
+    "If we know one group's worthiness score has been artificially inflated, one solution for fairness is to\nA: Remove that group from the dataset\nB: Add the inflation to the other data\nC: Balance the error rate by prioritizing the other group\nD: Creating separate decision thresholds for each group": "Creating separate decision thresholds for each group"
+},
+{
+    "An unfair model will by nature\nA: Try to balance groups automatically\nB: Optimize for making the most errors\nC: Optimize for making the fewest mistakes\nD: Optimize for making the fewest decisions": "Optimize for making the fewest mistakes"
+},
+{
+    "True or false: it is practical to protect all possible subgroups in predictive modeling\nA: True\nB: False": "False"
+},
+{
+    "In machine learning, a pareto curve helps us\nA: Highlight the inequality in our model\nB: Pick an optimal threshold for accuracy and error rate\nC: Pick an optimal tradeoff between fairness and accuracy\nD: Select which model will give the best results": "Pick an optimal tradeoff between fairness and accuracy"
+},
+{
+    "True or false: a blind attribute model protects group fairness by not including group membership in predictions\nA: True\nB: False": "False"
+},
+{
+    "An adversarial algorithm is _______________ to identify weaknesses in black box models\nA: Given no data\nB: Purposefully biased\nC: Purposefully fair\nD: Trained with large datasets": "Purposefully biased"
+},
+{
+    "True or false: our analysis revealed that word2vec is not a black box model\nA: True\nB: False": "True"
+},
+{
+    "Which step in the fairness process would be most appropriate to introduce an auditing model?\nA: Sub-processing\nB: Pre-processing\nC: Post-processing\nD: In-processing": "In-processing"
+},
+{
+    "A state where resources cannot be reallocated to make one individual better off without making at least one individual worse off is known as a\nA: Pareto efficiency\nB: Prisoner's dilemma\nC: Boron letter\nD: Aggregate curve": "Pareto efficiency"
+},
+{
+    "In machine learning, what do we plot on the x,y axis to determine a pareto curve?\nA: Error rate, rejection rate\nB: Rejection rate, false-positive rate\nC: Rejection rate, subgroup fairness rate\nD: Error rate, true positive rate": "Error rate, rejection rate"
+},
+{
+    "Why is it impractical to protect all possible subgroups in predictive models?\nA: Individuals do not need protection from predictive models\nB: Fairness scores won't be high enough to be reasonable\nC: Accuracy will be lowered beyond a reasonable rate\nD: There won't be enough data to reflect each subgroup": "Accuracy will be lowered beyond a reasonable rate"
+},
+{
+    "A model that equalizes the number of mistakes it makes for each subgroup to reduce harm is deciding on\nA: Equality of false negatives\nB: Equality of training data\nC: Equality of prediction bias\nD: Equality of true outcomes": "Equality of false negatives"
+},
+{
+    "A _________ model can still be unfair even though it won't explicitly know which groups are being inputted into the system\nA: Single attribute\nB: Biased training\nC: Blind attribute\nD: False-negative optimized": "Blind attribute"
+},
+{
+    "What tools do researchers have to evaluate the fairness of existing black box models?\nA: Evaluate inputs, evaluate data\nB: Change training data, evaluate outputs\nC: Change inputs, evaluate outputs\nD: Change inputs, evaluate training data": "Change inputs, evaluate outputs"
+},
+{
+    "A \"purposefully biased\" algorithm used to identify unfair attributes is known as\nA: A predictive model\nB: An aggregate algorithm\nC: A discriminatory algorithm\nD: An adversarial algorithm": "An adversarial algorithm"
+},
+{
+    "In presenting an audit report, a researcher would\nA: Prevent the model from launching\nB: De-bias the results\nC: Score the weight of input attributes on output\nD: Re-train the model": "Score the weight of input attributes on output"
+},
+{
+    "In fixing the word2vec model, we have an advantage over a traditional black box model in that\nA: We can decide which inputs to use\nB: We have access to the training data\nC: We can see the decision-making model\nD: We can generate a fairness score": "We have access to the training data"
+},
+{
+    "An auditing model is an example of a ______ bias mitigation method\nA: Sub-processing\nB: Pre-processing\nC: Post-processing\nD: In-processing": "In-processing"
+},
+{
+    "True or false: the no free lunch theorem states that we cannot have fair models without giving up something else\nA: True\nB: False": "False"
+},
+{
+    "Which of the following is a good example of sample bias?\nA: Your model is trained to recognize pets, but you only give it photos of dogs\nB: Your model is trained to avoid bias, but it contains no samples of that bias\nC: Your model is broken because it cannot sample the right attribute\nD: Your model is designed to give loans to those who need it, but it is trained with unfair data": "Your model is trained to recognize pets, but you only give it photos of dogs"
+},
+{
+    "When cleaning/parsing data removes a potentially important attribute, that is referred to as\nA: Confirmation bias\nB: Automation bias\nC: Exclusion bias\nD: Observer bias": "Exclusion bias"
+},
+{
+    "Labeling outputs made by predictive models can avoid which feedback issue?\nA: Predictive loop bias\nB: Fairness score bias\nC: Re-training bias\nD: Sample bias": "Re-training bias"
+}
+]
