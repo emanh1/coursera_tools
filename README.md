@@ -1,12 +1,12 @@
 
 # Coursera Tools
 
-a python script to automate solving quizzes and grade peer assignments
+A python script to automate solving quizzes and grade peer assignments
 
 
 ## What it does
 
-This script automate the process of solving quizzes on Coursera using a json file that contains the question and answers key, or in case that no file is given, uses llama3.2 to answer the questions. It also automate the process of grading peer assignments, assuming you did yours.
+This script automate the process of solving quizzes on Coursera using a json file that contains the question and answers key, or in case that no file is given, uses llama3.2 to answer the questions. It also automate the process of grading peer assignments, assuming you did yours. This script does NOT automate the doing of YOUR peer graded assignment, though I might try to code that in the future.
 ## Requirements
 Install with:
 ```
