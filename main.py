@@ -97,7 +97,8 @@ class Main:
 
     def do_assignments(self) -> None:
         self.continue_button()
-        assignments_div = self.wait_for(By.XPATH, '/html/body/div[2]/div/div[1]/div/div/div[2]/div[2]/div/main/div/div/div/div/div[2]/div[3]/div/div[2]')
+        assignments_div = self.wait_for(By.XPATH, '//div[@aria-label="Assignments Table"]')
+        #assignments_div = self.wait_for(By.XPATH, '/html/body/div[2]/div/div[1]/div/div/div[2]/div[2]/div/main/div/div/div/div/div[2]/div[3]/div/div[2]')
         assignments = [i.get_attribute('href') for i in assignments_div.find_elements(By.TAG_NAME, 'a')]
         for assignment in assignments:
             print("Going to", assignment)
