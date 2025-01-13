@@ -47,6 +47,7 @@ class Main:
 
     def click(self, e: WebElement) -> None:
         ActionChains(self.driver).move_to_element(e).click().perform()
+        print(f"Clicked element {e} with innertext {e.get_attribute('innerText')}")
 
     def login(self) -> None:
         self.driver.get("https://www.coursera.org/?authMode=login")
