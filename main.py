@@ -117,7 +117,7 @@ class Main:
         self.click(start_button)
         self.continue_button()
         try:
-        questions_div = self.wait_for(By.XPATH, "/html/body/div[5]/div/div/div/div[2]/div[2]/div/div/div/div/div/div/div/div")
+            questions_div = self.wait_for(By.XPATH, "/html/body/div[5]/div/div/div/div[2]/div[2]/div/div/div/div/div/div/div/div")
         questions = questions_div.find_elements(By.XPATH, "./div")
         for question in questions:
             try:
