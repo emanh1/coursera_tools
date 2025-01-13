@@ -119,6 +119,8 @@ class Main:
         self.continue_button()
         try:
             questions_div = self.wait_for(By.XPATH, "/html/body/div[5]/div/div/div/div[2]/div[2]/div/div/div/div/div/div/div/div")
+        except:
+            return
         questions = questions_div.find_elements(By.XPATH, "./div")
         for question in questions:
             try:
@@ -159,15 +161,51 @@ class Main:
             print(f"No answer found")
             return
         answers = q.find_elements(By.CLASS_NAME, "rc-Option")
+        
+        # Try exact match first
         for ans in answers:
             anstext = self.normalize_string(ans.get_attribute('innerText'))
             if anstext == answer:
                 self.scroll_to(ans)
                 self.click(ans)
                 return
+        
+        # If no exact match, find closest match
+        closest_match = None
+        highest_ratio = 0
+        for ans in answers:
+            anstext = self.normalize_string(ans.get_attribute('innerText'))
+            ratio = difflib.SequenceMatcher(None, anstext, answer).ratio()
+            if ratio > highest_ratio:
+                highest_ratio = ratio
+                closest_match = ans
+        
+        if closest_match and highest_ratio > 0.6:  # threshold of 60% similarity
+            print(f"Using closest match (similarity: {highest_ratio:.2%})")
+            self.scroll_to(closest_match)
+            self.click(closest_match)
+        else:
+            print("No suitable match found")
+
+    def is_ollama_running(self) -> bool:
+        try:
+            response = requests.get("http://localhost:11434", timeout=5) 
+            if response.status_code == 200:
+                return True
+        except requests.RequestException:
+            return False
+        return False
+
+    def start_ollama(self) -> None:
+        try:
+            subprocess.Popen(["ollama", "run", "llama3.2"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            print("Starting ollama with model 'llama3.2'...")
+            time.sleep(5) 
+        except Exception as e:
+            print(f"Failed to start ollama: {e}")
 
     def get_answer(self, inp: str) -> str:
-        if self.json is not None:
+        if len(self.json) != 0:
             for i in self.json:
                 for k,v in i.items():
                     qt = self.normalize_string(k.split("\n")[0].strip())
@@ -176,10 +214,17 @@ class Main:
                         ans = v.strip()
                         return self.normalize_string(ans)
         else:
-            response = chat(model='llama3.2', messages=[
+            if not self.is_ollama_running():
+                self.start_ollama()
+                if not self.is_ollama_running():
+                    time.sleep(10)
+                    if not self.is_ollama_running():
+                        return "error starting"
+            import ollama
+            response = ollama.chat(model='llama3.2', messages=[
                 {
                     "role": "system",
-                    "content": "You are an intelligent assistant. When given a question followed by multiple-choice answers, you must return only the complete text of the correct answer, without including any labels (such as 'a,' 'b,' 'c,' or 'd'). Provide no additional commentary or formatting.\n\nExample Input:\nQuestion: What is the capital of France?\na. Berlin\nb. Madrid\nc. Paris\nd. Rome\n\nExample Output:\nParis\n\nInstructions:\n- If the correct answer is given, repeat the exact text of that answer.\n- Do not include option labels or numbers in your response.\n- Do not provide explanations or comments unless explicitly asked for."
+                    "content": "You are an intelligent assistant. When given a question followed by multiple-choice answers, you must return only the complete text of the correct answer, without including any labels (such as 'a,' 'b,' 'c,' or 'd'). Provide no additional commentary or formatting.\n\nExample Input:\nQuestion: What is the capital of France?|Berlin|Madrid|Paris|Rome\n\nExample Output:Paris\n\nInstructions:\n- If the correct answer is given, repeat the exact text of that answer.\n- Do not include option labels or numbers in your response.\n- Do not provide explanations or comments unless explicitly asked for."
                 },
 
                 {
@@ -187,7 +232,7 @@ class Main:
                     'content': inp,
                 },
             ])
-            return response['message']['content']
+            return self.normalize_string(response['message']['content'])
         return ""
 
 
@@ -246,7 +291,13 @@ class Main:
 
     def review_peer_assignments(self) -> None:
         time.sleep(10) #Wait to load
-        review_txt = self.wait_for(By.XPATH, "//*[contains(text(), 'reviews left')]").text
+        try:
+            review_txt = self.wait_for(By.XPATH, "//*[contains(text(), 'left to complete')]").text
+        except:
+            try:
+                review_txt = self.wait_for(By.XPATH, "//*[contains(text(), 'reviews left')]").text
+            except:
+                review_txt = "1"
         match = re.search(r"(\d+)", review_txt)
         if match:
             reviews = int(match.group(1))
