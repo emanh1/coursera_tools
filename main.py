@@ -2,8 +2,9 @@ import os
 import re
 import json
 import time
-
-from ollama import chat
+import requests
+import subprocess
+import difflib
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
