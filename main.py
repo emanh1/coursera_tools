@@ -140,6 +140,10 @@ class Main:
     def get_question_text(self, q: WebElement) -> str:
         try:
             question = q.find_element(By.CLASS_NAME, "rc-CML").get_attribute("innerText")
+            if len(self.json) == 0:
+                answers = q.find_elements(By.CLASS_NAME, "rc-Option")
+                for answer in answers:
+                    question += "|" + answer.get_attribute("innerText")
             return self.normalize_string(question)
         except:
             return ""
