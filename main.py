@@ -48,8 +48,12 @@ class Main:
         self.driver.execute_script("arguments[0].scrollIntoView(true);", e)
 
     def click(self, e: WebElement) -> None:
-        ActionChains(self.driver).move_to_element(e).click().perform()
-        print(f"Clicked element {e} with innertext {e.get_attribute('innerText')}")
+        try:
+            self.scroll_to(e)
+            self.driver.execute_script("arguments[0].click();", e)
+            print(f"Clicked element {e} with innertext {e.get_attribute('innerText')}")
+        except:
+            pass
 
     def login(self) -> None:
         self.driver.get("https://www.coursera.org/?authMode=login")
