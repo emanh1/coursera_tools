@@ -331,10 +331,11 @@ if __name__=='__main__':
         mode = input("Choose mode (1: Full course completion, 2: Peer reviews only): ")
         main.review_only = (mode == "2")
         main.input_course_links()
-        mapping = input("Path to json file to solve quizzes? Leave blank to use AI (llama3.2): ")
-        if mapping != "":
-            with open(mapping, 'r') as f:
-                main.json = json.load(f)
+        if not main.review_only:
+            mapping = input("Path to json file to solve quizzes? Leave blank to use AI (llama3.2): ")
+            if mapping != "":
+                with open(mapping, 'r') as f:
+                    main.json = json.load(f)
         main.start()
     except Exception as e:
         print(e)
