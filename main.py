@@ -249,7 +249,7 @@ class Main:
             textarea = self.wait_for(By.XPATH, '//textarea[@placeholder="Share your thoughts..."]')
             textarea_id = textarea.get_attribute('id').rstrip("~comment")
             link += "/review/" + textarea_id
-            print("Grade link: ",link)
+            print(f"\033[32mGrade link: {link}\033[0m")
         except:
             pass
 
