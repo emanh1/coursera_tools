@@ -33,6 +33,7 @@ class Main:
         self.wait = WebDriverWait(self.driver,10)
         self.json = []
         self.courses = []
+        self.review_only = False 
 
     def normalize_string(self, s: str) -> str:
         s = s.lower()
@@ -99,7 +100,6 @@ class Main:
     def do_assignments(self) -> None:
         self.continue_button()
         assignments_div = self.wait_for(By.XPATH, '//div[@aria-label="Assignments Table"]')
-        #assignments_div = self.wait_for(By.XPATH, '/html/body/div[2]/div/div[1]/div/div/div[2]/div[2]/div/main/div/div/div/div/div[2]/div[3]/div/div[2]')
         assignments = [i.get_attribute('href') for i in assignments_div.find_elements(By.TAG_NAME, 'a')]
         for assignment in assignments:
             print("Going to", assignment)
@@ -109,7 +109,7 @@ class Main:
                     self.review_peer_assignments()
                 else:
                     self.do_peer_assignment()
-            else:
+            elif not self.review_only:
                 self.do_quiz()
             
     def do_quiz(self) -> None:
@@ -324,6 +324,8 @@ if __name__=='__main__':
     main = Main(options)
     try:
         main.login()
+        mode = input("Choose mode (1: Full course completion, 2: Peer reviews only): ")
+        main.review_only = (mode == "2")
         main.input_course_links()
         mapping = input("Path to json file to solve quizzes? Leave blank to use AI (llama3.2): ")
         if mapping != "":
