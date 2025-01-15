@@ -208,15 +208,35 @@ class Main:
         except Exception as e:
             print(f"Failed to start ollama: {e}")
 
+    def find_best_match(self, target: str, choices: list[str], threshold: float = 0.6) -> str:
+        closest_match = ""
+        highest_ratio = 0
+        target = self.normalize_string(target)
+        
+        for choice in choices:
+            choice = self.normalize_string(choice)
+            ratio = difflib.SequenceMatcher(None, choice, target).ratio()
+            if ratio > highest_ratio:
+                highest_ratio = ratio
+                closest_match = choice
+        
+        return closest_match if highest_ratio > threshold else ""
+
     def get_answer(self, inp: str) -> str:
         if len(self.json) != 0:
-            for i in self.json:
-                for k,v in i.items():
-                    qt = self.normalize_string(k.split("\n")[0].strip())
-                    inp = inp.strip()
-                    if qt == inp:
-                        ans = v.strip()
-                        return self.normalize_string(ans)
+            inp = self.normalize_string(inp)
+            # Try exact match first
+            for item in self.json:
+                if self.normalize_string(item['term']) == inp:
+                    return self.normalize_string(item['definition'])
+            
+            # If no exact match, try fuzzy matching
+            terms = [item['term'] for item in self.json]
+            best_match = self.find_best_match(inp, terms)
+            if best_match:
+                for item in self.json:
+                    if self.normalize_string(item['term']) == self.normalize_string(best_match):
+                        return self.normalize_string(item['definition'])
         else:
             if not self.is_ollama_running():
                 self.start_ollama()
@@ -230,7 +250,6 @@ class Main:
                     "role": "system",
                     "content": "You are an intelligent assistant. When given a question followed by multiple-choice answers, you must return only the complete text of the correct answer, without including any labels (such as 'a,' 'b,' 'c,' or 'd'). Provide no additional commentary or formatting.\n\nExample Input:\nQuestion: What is the capital of France?|Berlin|Madrid|Paris|Rome\n\nExample Output:Paris\n\nInstructions:\n- If the correct answer is given, repeat the exact text of that answer.\n- Do not include option labels or numbers in your response.\n- Do not provide explanations or comments unless explicitly asked for."
                 },
-
                 {
                     'role': 'user',
                     'content': inp,
