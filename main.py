@@ -5,6 +5,7 @@ import time
 import requests
 import subprocess
 import difflib
+import ollama
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -33,7 +34,8 @@ class Main:
         self.wait = WebDriverWait(self.driver,10)
         self.json = []
         self.courses = []
-        self.review_only = False 
+        self.review_only = False
+        self.model = 'llama3.2' 
 
     def normalize_string(self, s: str) -> str:
         s = s.lower()
@@ -248,8 +250,7 @@ class Main:
                         break
                     else:
                         return "error starting"
-        import ollama
-        response = ollama.chat(model='llama3.2', messages=[
+        response = ollama.chat(model=self.model, messages=[
             {
                 "role": "system",
                 "content": "You are an intelligent assistant. When given a question followed by multiple-choice answers, you must return only the complete text of the correct answer, without including any labels (such as 'a,' 'b,' 'c,' or 'd'). Provide no additional commentary or formatting.\n\nExample Input:\nQuestion: What is the capital of France?|Berlin|Madrid|Paris|Rome\n\nExample Output:Paris\n\nInstructions:\n- If the correct answer is given, repeat the exact text of that answer.\n- Do not include option labels or numbers in your response.\n- Do not provide explanations or comments unless explicitly asked for."
