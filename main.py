@@ -173,11 +173,12 @@ class Main:
     def solve_question(self, q: WebElement) -> None:
         text = self.get_question_text(q)
         if text is None:
-            print(f"Question text not found for element {q} with innerText {q.get_attribute('innerText')}")
+            print(f"Question text not found for element with innerText {q.get_attribute('innerText')}")
             return
+        print(f"Solving question: {text[0]}")
         answer = self.get_answer(text)
         if answer == "":
-            print(f"No answer found")
+            print(f"No answer found for question {text[0]}")
             return
         answers = q.find_elements(By.CLASS_NAME, "rc-Option")
         
