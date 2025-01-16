@@ -351,8 +351,6 @@ if __name__=='__main__':
                 with open(mapping, 'r') as f:
                     main.json = json.load(f)
         main.start()
-    except Exception as e:
-        print(e)
     except KeyboardInterrupt:
         print("Interrupted")
     finally:
