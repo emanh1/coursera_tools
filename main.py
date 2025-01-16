@@ -133,7 +133,6 @@ class Main:
                 print(e)
                 continue
         checkbox = self.driver.find_element(By.ID, "agreement-checkbox-base")
-        self.scroll_to(checkbox)
         self.click(checkbox)
         submit_button = self.wait_for(By.XPATH, "//span[text()='Submit']")
         self.click(submit_button)
@@ -170,7 +169,6 @@ class Main:
         for ans in answers:
             anstext = self.normalize_string(ans.get_attribute('innerText'))
             if anstext == answer:
-                self.scroll_to(ans)
                 self.click(ans)
                 return
         
@@ -186,7 +184,6 @@ class Main:
         
         if closest_match and highest_ratio > 0.6:  # threshold of 60% similarity
             print(f"Using closest match (similarity: {highest_ratio:.2%})")
-            self.scroll_to(closest_match)
             self.click(closest_match)
         else:
             print("No suitable match found")
@@ -327,7 +324,6 @@ class Main:
         else:
             reviews = 1
         start = self.wait_for(By.XPATH, '//span[text()="Start Reviewing"]')
-        self.scroll_to(start)
         self.click(start)
         for _ in range(reviews):
             time.sleep(10)
@@ -335,7 +331,6 @@ class Main:
             self.auto_option()
             self.auto_yes_no()
             submit = self.driver.find_element(By.XPATH, "//*[text()='Submit Review']")
-            self.scroll_to(submit)
             self.click(submit)
             
 if __name__=='__main__':
