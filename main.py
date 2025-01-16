@@ -201,7 +201,7 @@ class Main:
                 highest_ratio = ratio
                 closest_match = ans
         
-        if closest_match and highest_ratio > 0.6:  # threshold of 60% similarity
+        if closest_match and highest_ratio > 0.8:  # threshold of 80% similarity
             print(f"Using closest match (similarity: {highest_ratio:.2%})")
             self.click(closest_match)
         else:
@@ -224,7 +224,7 @@ class Main:
         except Exception as e:
             print(f"Failed to start ollama: {e}")
 
-    def find_best_match(self, target: str, choices: list[str], threshold: float = 0.6) -> str:
+    def find_best_match(self, target: str, choices: list[str], threshold: float = 0.8) -> str:
         closest_match = ""
         highest_ratio = 0
         target = self.normalize_string(target)
