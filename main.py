@@ -50,7 +50,8 @@ class Main:
     def click(self, e: WebElement) -> None:
         try:
             self.scroll_to(e)
-            self.driver.execute_script("arguments[0].click();", e)
+            #self.driver.execute_script("arguments[0].click();", e)
+            ActionChains(self.driver).move_to_element(e).click().perform()
             print(f"Clicked element {e} with innertext {e.get_attribute('innerText')}")
         except:
             pass
