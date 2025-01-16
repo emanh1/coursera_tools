@@ -51,7 +51,7 @@ class Main:
         try:
             self.scroll_to(e)
             ActionChains(self.driver).move_to_element(e).click().perform()
-            print(f"Clicked element {e} with innertext {e.get_attribute('innerText')}")
+            print(f"Clicked element with innertext {e.get_attribute('innerText')}")
         except:
             pass
 
