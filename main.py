@@ -261,12 +261,12 @@ class Main:
         ])
         return self.normalize_string(response['message']['content'])
 
-    def get_answer(self, inp: tuple[str, str]) -> str:
+    def get_answer(self, inp: tuple[str, str]) -> tuple[str, str]:
         if len(self.json) != 0:
             # Try exact match first
             for item in self.json:
                 if self.normalize_string(item['term']) == inp[0]:
-                    return self.normalize_string(item['definition'])
+                    return self.normalize_string(item['definition']), "json"
             
             # If no exact match, try fuzzy matching
             terms = [item['term'] for item in self.json]
@@ -274,12 +274,10 @@ class Main:
             if best_match:
                 for item in self.json:
                     if self.normalize_string(item['term']) == self.normalize_string(best_match):
-                        return self.normalize_string(item['definition'])
-            print("ollama response:")
-            return self.ask_ollama(inp[0] + "|" + inp[1])
+                        return self.normalize_string(item['definition']), "json"
+            return self.ask_ollama(inp[0] + "|" + inp[1]), "ollama"
         else:
-            print("ollama response:")
-            return self.ask_ollama(inp[0] + "|" + inp[1])
+            return self.ask_ollama(inp[0] + "|" + inp[1]), "ollama"
 
 
     def do_peer_assignment(self) -> None:
