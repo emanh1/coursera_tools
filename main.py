@@ -116,6 +116,7 @@ class Main:
                     print(f"Skipping {quiz_div.get_attribute('innerText')}")
                     continue
             except:
+                print("Not completed,")
                 quiz_link = quiz_div.find_element(By.TAG_NAME, 'a').get_attribute('href')
                 print("Going to", quiz_link)
                 self.driver.get(quiz_link)
