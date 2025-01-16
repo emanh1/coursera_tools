@@ -177,7 +177,8 @@ class Main:
             print(f"Question text not found for element with innerText {q.get_attribute('innerText')}")
             return
         print(f"Solving question: {text[0]}")
-        answer = self.get_answer(text)
+        answer, by = self.get_answer(text)
+        print(f"Answer: {answer} ({by})")
         if answer == "":
             print(f"No answer found for question {text[0]}")
             return
