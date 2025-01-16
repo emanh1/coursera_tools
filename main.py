@@ -157,7 +157,7 @@ class Main:
     def solve_question(self, q: WebElement) -> None:
         text = self.get_question_text(q)
         if text == "":
-            print(f"Question text not found for element {q}")
+            print(f"Question text not found for element {q} with innerText {q.get_attribute('innerText')}")
             return
         answer = self.get_answer(text)
         if answer == "":
