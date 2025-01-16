@@ -239,8 +239,11 @@ class Main:
             if not self.is_ollama_running():
                 self.start_ollama()
                 if not self.is_ollama_running():
-                    time.sleep(10)
-                    if not self.is_ollama_running():
+                    for _ in range(20): 
+                        time.sleep(0.5)
+                        if self.is_ollama_running():
+                            break
+                    else:
                         return "error starting"
             import ollama
             response = ollama.chat(model='llama3.2', messages=[
