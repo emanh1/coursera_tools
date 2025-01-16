@@ -50,7 +50,6 @@ class Main:
     def click(self, e: WebElement) -> None:
         try:
             self.scroll_to(e)
-            #self.driver.execute_script("arguments[0].click();", e)
             ActionChains(self.driver).move_to_element(e).click().perform()
             print(f"Clicked element {e} with innertext {e.get_attribute('innerText')}")
         except:
@@ -145,20 +144,20 @@ class Main:
             pass
         time.sleep(11) # Wait for results screen
         
-    def get_question_text(self, q: WebElement) -> str:
+    def get_question_text(self, q: WebElement) -> tuple[str, str]:
         try:
-            question = q.find_element(By.CLASS_NAME, "rc-CML").get_attribute("innerText")
-            if len(self.json) == 0:
-                answers = q.find_elements(By.CLASS_NAME, "rc-Option")
-                for answer in answers:
-                    question += "|" + answer.get_attribute("innerText")
-            return self.normalize_string(question)
+            question = self.normalize_string(q.find_element(By.CLASS_NAME, "rc-CML").get_attribute("innerText"))
+            answers = q.find_elements(By.CLASS_NAME, "rc-Option")
+            answerstext = ""
+            for answer in answers:
+                answerstext += "|" + answer.get_attribute("innerText")
+            return (question, answerstext) 
         except:
-            return ""
+            return None
 
     def solve_question(self, q: WebElement) -> None:
         text = self.get_question_text(q)
-        if text == "":
+        if text is None:
             print(f"Question text not found for element {q} with innerText {q.get_attribute('innerText')}")
             return
         answer = self.get_answer(text)
@@ -221,9 +220,9 @@ class Main:
         
         return closest_match if highest_ratio > threshold else ""
 
-    def get_answer(self, inp: str) -> str:
+    def get_answer(self, inp: tuple[str, str]) -> str:
         if len(self.json) != 0:
-            inp = self.normalize_string(inp)
+            inp = self.normalize_string(inp[0])
             # Try exact match first
             for item in self.json:
                 if self.normalize_string(item['term']) == inp:
@@ -251,7 +250,7 @@ class Main:
                 },
                 {
                     'role': 'user',
-                    'content': inp,
+                    'content': inp[0] + inp[1],
                 },
             ])
             return self.normalize_string(response['message']['content'])
