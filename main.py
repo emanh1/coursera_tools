@@ -111,7 +111,7 @@ class Main:
             if self.review_only:
                 break
             try:
-                completed = quiz_div.find_element(By.CSS_SELECTOR, "svg#cds-react-aria-80")
+                completed = quiz_div.find_element(By.XPATH, ".//p[text()='Passed']")
                 if completed:
                     print(f"Skipping {quiz_div.get_attribute('innerText')}")
                     continue
