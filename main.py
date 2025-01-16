@@ -165,7 +165,7 @@ class Main:
             answers = q.find_elements(By.CLASS_NAME, "rc-Option")
             answerstext = ""
             for answer in answers:
-                answerstext += "|" + answer.get_attribute("innerText")
+                answerstext += "|" + self.normalize_string(answer.get_attribute("innerText"))
             return (question, answerstext) 
         except:
             return None
@@ -235,44 +235,48 @@ class Main:
         
         return closest_match if highest_ratio > threshold else ""
 
+    def ask_ollama(self, inp: str) -> str:
+        if not self.is_ollama_running():
+            self.start_ollama()
+            if not self.is_ollama_running():
+                for _ in range(20): 
+                    time.sleep(0.5)
+                    if self.is_ollama_running():
+                        break
+                    else:
+                        return "error starting"
+        import ollama
+        response = ollama.chat(model='llama3.2', messages=[
+            {
+                "role": "system",
+                "content": "You are an intelligent assistant. When given a question followed by multiple-choice answers, you must return only the complete text of the correct answer, without including any labels (such as 'a,' 'b,' 'c,' or 'd'). Provide no additional commentary or formatting.\n\nExample Input:\nQuestion: What is the capital of France?|Berlin|Madrid|Paris|Rome\n\nExample Output:Paris\n\nInstructions:\n- If the correct answer is given, repeat the exact text of that answer.\n- Do not include option labels or numbers in your response.\n- Do not provide explanations or comments unless explicitly asked for."
+            },
+            {
+                'role': 'user',
+                'content': inp,
+            },
+        ])
+        return self.normalize_string(response['message']['content'])
+
     def get_answer(self, inp: tuple[str, str]) -> str:
         if len(self.json) != 0:
-            inp = self.normalize_string(inp[0])
             # Try exact match first
             for item in self.json:
-                if self.normalize_string(item['term']) == inp:
+                if self.normalize_string(item['term']) == inp[0]:
                     return self.normalize_string(item['definition'])
             
             # If no exact match, try fuzzy matching
             terms = [item['term'] for item in self.json]
-            best_match = self.find_best_match(inp, terms)
+            best_match = self.find_best_match(inp[0], terms)
             if best_match:
                 for item in self.json:
                     if self.normalize_string(item['term']) == self.normalize_string(best_match):
                         return self.normalize_string(item['definition'])
+            print("ollama response:")
+            return self.ask_ollama(inp[0] + "|" + inp[1])
         else:
-            if not self.is_ollama_running():
-                self.start_ollama()
-                if not self.is_ollama_running():
-                    for _ in range(20): 
-                        time.sleep(0.5)
-                        if self.is_ollama_running():
-                            break
-                    else:
-                        return "error starting"
-            import ollama
-            response = ollama.chat(model='llama3.2', messages=[
-                {
-                    "role": "system",
-                    "content": "You are an intelligent assistant. When given a question followed by multiple-choice answers, you must return only the complete text of the correct answer, without including any labels (such as 'a,' 'b,' 'c,' or 'd'). Provide no additional commentary or formatting.\n\nExample Input:\nQuestion: What is the capital of France?|Berlin|Madrid|Paris|Rome\n\nExample Output:Paris\n\nInstructions:\n- If the correct answer is given, repeat the exact text of that answer.\n- Do not include option labels or numbers in your response.\n- Do not provide explanations or comments unless explicitly asked for."
-                },
-                {
-                    'role': 'user',
-                    'content': inp[0] + inp[1],
-                },
-            ])
-            return self.normalize_string(response['message']['content'])
-        return ""
+            print("ollama response:")
+            return self.ask_ollama(inp[0] + "|" + inp[1])
 
 
     def do_peer_assignment(self) -> None:
