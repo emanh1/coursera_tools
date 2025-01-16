@@ -104,17 +104,32 @@ class Main:
     def do_assignments(self) -> None:
         self.continue_button()
         assignments_div = self.wait_for(By.XPATH, '//div[@aria-label="Assignments Table"]')
-        assignments = [i.get_attribute('href') for i in assignments_div.find_elements(By.TAG_NAME, 'a')]
-        for assignment in assignments:
-            print("Going to", assignment)
-            self.driver.get(assignment)
-            if 'peer' in assignment:
-                if 'give-feedback' in assignment:
-                    self.review_peer_assignments()
-                else:
-                    self.do_peer_assignment()
-            elif not self.review_only:
+        quizzes_divs = assignments_div.find_elements(By.CSS_SELECTOR, "div[class^='rc-AssignmentsTableRowCds css-']")
+        peer_divs = assignments_div.find_elements(By.CSS_SELECTOR, "div[data-e2e='ungrouped-peer-assignment-row']")
+        
+        for quiz_div in quizzes_divs:
+            if self.review_only:
+                break
+            try:
+                completed = quiz_div.find_element(By.XPATH, "//title[text()='Completed']")
+                if completed:
+                    print(f"Skipping {quiz_div.get_attribute('innerText')}")
+                    continue
+            except:
+                quiz_link = quiz_div.find_element(By.TAG_NAME, 'a').get_attribute('href')
+                print("Going to", quiz_link)
+                self.driver.get(quiz_link)
                 self.do_quiz()
+
+        for peer_div in peer_divs:
+            peer_link = peer_div.find_element(By.TAG_NAME, 'a').get_attribute('href')
+            print("Going to", peer_link)
+            self.driver.get(peer_link)
+            if 'peer' in peer_link:
+               if 'give-feedback' in peer_link:
+                   self.review_peer_assignments()
+               else:
+                   self.do_peer_assignment()           
             
     def do_quiz(self) -> None:
         self.continue_button()
