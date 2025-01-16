@@ -130,6 +130,7 @@ class Main:
         for question in questions:
             try:
                 self.solve_question(question)
+                time.sleep(1)
             except Exception as e:
                 print(e)
                 continue
