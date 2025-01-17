@@ -227,7 +227,7 @@ class Main:
         except Exception as e:
             print(f"Failed to start ollama: {e}")
 
-    def find_best_match(self, target: str, choices: list[str], threshold: float = 0.8) -> str:
+    def find_best_match(self, target: str, choices: list[str], threshold: float = 0.6) -> str:
         closest_match = ""
         highest_ratio = 0
         target = self.normalize_string(target)
