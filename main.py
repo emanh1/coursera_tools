@@ -169,7 +169,7 @@ class Main:
             answers = q.find_elements(By.CLASS_NAME, "rc-Option")
             answerstext = ""
             for answer in answers:
-                answerstext += "|" + self.normalize_string(answer.get_attribute("innerText"))
+                answerstext += self.normalize_string(answer.get_attribute("innerText"))
             return (question, answerstext) 
         except:
             return None
@@ -267,12 +267,12 @@ class Main:
         if len(self.json) != 0:
             # Try exact match first
             for item in self.json:
-                if self.normalize_string(item['term']) == inp[0]:
+                if self.normalize_string(item['term']) == inp[0] + inp[1]:
                     return self.normalize_string(item['definition']), "json"
             
             # If no exact match, try fuzzy matching
             terms = [item['term'] for item in self.json]
-            best_match = self.find_best_match(inp[0], terms)
+            best_match = self.find_best_match(inp[0] + inp[1], terms)
             if best_match:
                 for item in self.json:
                     if self.normalize_string(item['term']) == self.normalize_string(best_match):
