@@ -135,6 +135,7 @@ class Main:
                    self.do_peer_assignment()           
             
     def do_quiz(self) -> None:
+        print(f"Completing quiz on {self.driver.current_url}")
         self.continue_button()
         start_button = self.wait_for(By.XPATH, "/html/body/div[2]/div/div[1]/div/div/div[2]/div[2]/div[3]/div/div/div/div/main/div[1]/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/button/span")
         self.click(start_button)
@@ -335,6 +336,7 @@ class Main:
 
 
     def review_peer_assignments(self) -> None:
+        print(f"reviewing peers on {self.driver.current_url}")
         time.sleep(10) #Wait to load
         try:
             review_txt = self.wait_for(By.XPATH, "//*[contains(text(), 'left to complete')]").text
