@@ -220,8 +220,8 @@ class Main:
 
     def start_ollama(self) -> None:
         try:
-            subprocess.Popen(["ollama", "run", "llama3.2"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            print("Starting ollama with model 'llama3.2'...")
+            subprocess.Popen(["ollama", "run", self.model], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            print(f"Starting ollama with model {self.model}...")
             time.sleep(5) 
         except Exception as e:
             print(f"Failed to start ollama: {e}")
