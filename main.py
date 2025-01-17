@@ -245,7 +245,7 @@ class Main:
         if not self.is_ollama_running():
             self.start_ollama()
             if not self.is_ollama_running():
-                for _ in range(20): 
+                for _ in range(100): 
                     time.sleep(0.5)
                     if self.is_ollama_running():
                         break
